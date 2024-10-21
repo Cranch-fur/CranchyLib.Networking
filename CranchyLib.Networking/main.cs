@@ -4,6 +4,7 @@ using System.IO;
 using System.Net;
 using System.Net.Mime;
 using System.Text;
+using System.Windows.Forms;
 
 namespace CranchyLib.Networking
 {
@@ -386,79 +387,79 @@ namespace CranchyLib.Networking
         }
         public class SE_ContentType
         {
-            public static string application_java_archive = "application/java-archive";
-            public static string application_EDI_X12 = "application/EDI-X12";
-            public static string application_EDIFACT = "application/EDIFACT";
-            public static string application_javascript = "application/javascript";
-            public static string application_octet_stream = "application/octet-stream";
-            public static string application_ogg = "application/ogg";
-            public static string application_pdf = "application/pdf";
-            public static string application_xhtml_xml = "application/xhtml+xml";
-            public static string application_x_shockwave_flash = "application/x-shockwave-flash";
-            public static string application_json = "application/json";
-            public static string application_ld_json = "application/ld+json";
-            public static string application_xml = "application/xml";
-            public static string application_zip = "application/zip";
-            public static string application_x_www_form_urlencoded = "application/x-www-form-urlencoded";
-            public static string audio_mpeg = "audio/mpeg";
-            public static string audio_x_ms_wma = "audio/x-ms-wma";
-            public static string audio_vnd_rn_realaudio = "audio/vnd.rn-realaudio";
-            public static string audio_x_wav = "audio/x-wav";
-            public static string image_gif = "image/gif";
-            public static string image_jpeg = "image/jpeg";
-            public static string image_png = "image/png";
-            public static string image_tiff = "image/tiff";
-            public static string image_vnd_microsoft_icon = "image/vnd.microsoft.icon";
-            public static string image_x_icon = "image/x-icon";
-            public static string image_vnd_djvu = "image/vnd.djvu";
-            public static string image_svg_xml = "image/svg+xml";
-            public static string multipart_mixed = "multipart/mixed";
-            public static string multipart_alternative = "multipart/alternative";
-            public static string multipart_related = "multipart/related(usingbyMHTML(HTMLmail).)";
-            public static string multipart_form_data = "multipart/form-data";
-            public static string text_css = "text/css";
-            public static string text_csv = "text/csv";
-            public static string text_html = "text/html";
-            public static string text_javascript = "text/javascript(obsolete)";
-            public static string text_plain = "text/plain";
-            public static string text_xml = "text/xml";
-            public static string video_mpeg = "video/mpeg";
-            public static string video_mp4 = "video/mp4";
-            public static string video_quicktime = "video/quicktime";
-            public static string video_x_ms_wmv = "video/x-ms-wmv";
-            public static string video_x_msvideo = "video/x-msvideo";
-            public static string video_x_flv = "video/x-flv";
-            public static string video_webm = "video/webm";
-            public static string application_vnd_android_package_archive = "application/vnd.android.package-archive";
-            public static string application_vnd_oasis_opendocument_text = "application/vnd.oasis.opendocument.text";
-            public static string application_vnd_oasis_opendocument_spreadsheet = "application/vnd.oasis.opendocument.spreadsheet";
-            public static string application_vnd_oasis_opendocument_presentation = "application/vnd.oasis.opendocument.presentation";
-            public static string application_vnd_oasis_opendocument_graphics = "application/vnd.oasis.opendocument.graphics";
-            public static string application_vnd_ms_excel = "application/vnd.ms-excel";
-            public static string application_vnd_openxmlformats_officedocument_spreadsheetml_sheet = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
-            public static string application_vnd_ms_powerpoint = "application/vnd.ms-powerpoint";
-            public static string application_vnd_openxmlformats_officedocument_presentationml_presentation = "application/vnd.openxmlformats-officedocument.presentationml.presentation";
-            public static string application_msword = "application/msword";
-            public static string application_vnd_openxmlformats_officedocument_wordprocessingml_document = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
-            public static string application_vnd_mozilla_xul_xml = "application/vnd.mozilla.xul+xml";
+            public static readonly string application_java_archive = "application/java-archive";
+            public static readonly string application_EDI_X12 = "application/EDI-X12";
+            public static readonly string application_EDIFACT = "application/EDIFACT";
+            public static readonly string application_javascript = "application/javascript";
+            public static readonly string application_octet_stream = "application/octet-stream";
+            public static readonly string application_ogg = "application/ogg";
+            public static readonly string application_pdf = "application/pdf";
+            public static readonly string application_xhtml_xml = "application/xhtml+xml";
+            public static readonly string application_x_shockwave_flash = "application/x-shockwave-flash";
+            public static readonly string application_json = "application/json";
+            public static readonly string application_ld_json = "application/ld+json";
+            public static readonly string application_xml = "application/xml";
+            public static readonly string application_zip = "application/zip";
+            public static readonly string application_x_www_form_urlencoded = "application/x-www-form-urlencoded";
+            public static readonly string audio_mpeg = "audio/mpeg";
+            public static readonly string audio_x_ms_wma = "audio/x-ms-wma";
+            public static readonly string audio_vnd_rn_realaudio = "audio/vnd.rn-realaudio";
+            public static readonly string audio_x_wav = "audio/x-wav";
+            public static readonly string image_gif = "image/gif";
+            public static readonly string image_jpeg = "image/jpeg";
+            public static readonly string image_png = "image/png";
+            public static readonly string image_tiff = "image/tiff";
+            public static readonly string image_vnd_microsoft_icon = "image/vnd.microsoft.icon";
+            public static readonly string image_x_icon = "image/x-icon";
+            public static readonly string image_vnd_djvu = "image/vnd.djvu";
+            public static readonly string image_svg_xml = "image/svg+xml";
+            public static readonly string multipart_mixed = "multipart/mixed";
+            public static readonly string multipart_alternative = "multipart/alternative";
+            public static readonly string multipart_related = "multipart/related(usingbyMHTML(HTMLmail).)";
+            public static readonly string multipart_form_data = "multipart/form-data";
+            public static readonly string text_css = "text/css";
+            public static readonly string text_csv = "text/csv";
+            public static readonly string text_html = "text/html";
+            public static readonly string text_javascript = "text/javascript(obsolete)";
+            public static readonly string text_plain = "text/plain";
+            public static readonly string text_xml = "text/xml";
+            public static readonly string video_mpeg = "video/mpeg";
+            public static readonly string video_mp4 = "video/mp4";
+            public static readonly string video_quicktime = "video/quicktime";
+            public static readonly string video_x_ms_wmv = "video/x-ms-wmv";
+            public static readonly string video_x_msvideo = "video/x-msvideo";
+            public static readonly string video_x_flv = "video/x-flv";
+            public static readonly string video_webm = "video/webm";
+            public static readonly string application_vnd_android_package_archive = "application/vnd.android.package-archive";
+            public static readonly string application_vnd_oasis_opendocument_text = "application/vnd.oasis.opendocument.text";
+            public static readonly string application_vnd_oasis_opendocument_spreadsheet = "application/vnd.oasis.opendocument.spreadsheet";
+            public static readonly string application_vnd_oasis_opendocument_presentation = "application/vnd.oasis.opendocument.presentation";
+            public static readonly string application_vnd_oasis_opendocument_graphics = "application/vnd.oasis.opendocument.graphics";
+            public static readonly string application_vnd_ms_excel = "application/vnd.ms-excel";
+            public static readonly string application_vnd_openxmlformats_officedocument_spreadsheetml_sheet = "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet";
+            public static readonly string application_vnd_ms_powerpoint = "application/vnd.ms-powerpoint";
+            public static readonly string application_vnd_openxmlformats_officedocument_presentationml_presentation = "application/vnd.openxmlformats-officedocument.presentationml.presentation";
+            public static readonly string application_msword = "application/msword";
+            public static readonly string application_vnd_openxmlformats_officedocument_wordprocessingml_document = "application/vnd.openxmlformats-officedocument.wordprocessingml.document";
+            public static readonly string application_vnd_mozilla_xul_xml = "application/vnd.mozilla.xul+xml";
         }
         public class SE_UserAgent
         {
-            public static string Self = System.AppDomain.CurrentDomain.FriendlyName;
-
-            public static string GoogleBot = "Googlebot/2.1 (+http://www.google.com/bot.html)";
-            public static string AppleTV = "AppleTV6,2/11.1";
-
-            public static string Opera_Windows = "Opera/9.80 (Windows NT 6.2; Win64; x64) Presto/2.12.388 Version/12.16";
-            public static string Opera_Linux = "Opera/10.00 (X11; Linux i686; U; en) Presto/2.2.0";
-            public static string Opera_Mini = "Opera/10.61 (J2ME/MIDP; Opera Mini/5.1.21219/19.999; en-US; rv:1.9.3a5) WebKit/534.5 Presto/2.6.30";
-
-            public static string Mozilla_Windows = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0";
-            public static string Mozilla_Linux = "Mozilla/5.0 (X11; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0";
-            public static string Mozilla_Ubuntu = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0";
-            public static string Mozilla_Android = "Mozilla/5.0 (Linux; Android 10; AKA-L29 Build/HONORAKA-L29; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 Mobile Safari/537.36";
-            public static string Mozilla_Legacy_Windows = "Mozilla/1.22 (compatible; MSIE 2.0; Windows 3.1)";
-            public static string Mozilla_Legacy_Linux = "Mozilla/1.22 (compatible; Konqueror/4.3; Linux) KHTML/4.3.5 (like Gecko)";
+            public static readonly string Self = System.AppDomain.CurrentDomain.FriendlyName;
+                           
+            public static readonly string GoogleBot = "Googlebot/2.1 (+http://www.google.com/bot.html)";
+            public static readonly string AppleTV = "AppleTV6,2/11.1";
+                           
+            public static readonly string Opera_Windows = "Opera/9.80 (Windows NT 6.2; Win64; x64) Presto/2.12.388 Version/12.16";
+            public static readonly string Opera_Linux = "Opera/10.00 (X11; Linux i686; U; en) Presto/2.2.0";
+            public static readonly string Opera_Mini = "Opera/10.61 (J2ME/MIDP; Opera Mini/5.1.21219/19.999; en-US; rv:1.9.3a5) WebKit/534.5 Presto/2.6.30";
+                           
+            public static readonly string Mozilla_Windows = "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:71.0) Gecko/20100101 Firefox/71.0";
+            public static readonly string Mozilla_Linux = "Mozilla/5.0 (X11; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0";
+            public static readonly string Mozilla_Ubuntu = "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:70.0) Gecko/20100101 Firefox/70.0";
+            public static readonly string Mozilla_Android = "Mozilla/5.0 (Linux; Android 10; AKA-L29 Build/HONORAKA-L29; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/78.0.3904.108 Mobile Safari/537.36";
+            public static readonly string Mozilla_Legacy_Windows = "Mozilla/1.22 (compatible; MSIE 2.0; Windows 3.1)";
+            public static readonly string Mozilla_Legacy_Linux = "Mozilla/1.22 (compatible; Konqueror/4.3; Linux) KHTML/4.3.5 (like Gecko)";
         }
         public struct S_Response
         {
@@ -511,7 +512,7 @@ namespace CranchyLib.Networking
                 }
             }
 
-            httpRequest.Timeout = timeout.ToSeconds();
+            httpRequest.ReadWriteTimeout = timeout.ToSeconds();
 
             try
             {
@@ -526,6 +527,10 @@ namespace CranchyLib.Networking
                         return new S_Response(statusCode, responseHeaders, responseContent);
                     }
                 }
+            }
+            catch (WebException ex) when (ex.Status == WebExceptionStatus.Timeout)
+            {
+                return new S_Response(E_StatusCode.NONE, null, null);
             }
             catch (WebException ex)
             {
@@ -587,7 +592,7 @@ namespace CranchyLib.Networking
                 }
             }
 
-            httpRequest.Timeout = timeout.ToSeconds();
+            httpRequest.ReadWriteTimeout = timeout.ToSeconds();
 
             try
             {
@@ -602,6 +607,10 @@ namespace CranchyLib.Networking
                         return new S_Response(statusCode, responseHeaders, responseContent);
                     }
                 }
+            }
+            catch (WebException ex) when (ex.Status == WebExceptionStatus.Timeout)
+            {
+                return new S_Response(E_StatusCode.NONE, null, null);
             }
             catch (WebException ex)
             {
@@ -627,7 +636,7 @@ namespace CranchyLib.Networking
         }
 
 
-        public static S_Response Download(string url, List<string> headers, string data = null, string destinationPath = null, int timeout = 300)
+        public static S_Response Download(string url, List<string> headers, string data = null, string destinationPath = null, int timeout = 900)
         {
             HttpWebRequest httpRequest = WebRequest.CreateHttp(url);
             httpRequest.Method = "GET";
@@ -663,7 +672,7 @@ namespace CranchyLib.Networking
                 }
             }
 
-            httpRequest.Timeout = timeout.ToSeconds();
+            httpRequest.ReadWriteTimeout = timeout.ToSeconds();
 
             try
             {
@@ -735,6 +744,10 @@ namespace CranchyLib.Networking
                     }
                 }
             }
+            catch (WebException ex) when (ex.Status == WebExceptionStatus.Timeout)
+            {
+                return new S_Response(E_StatusCode.NONE, null, null);
+            }
             catch (WebException ex)
             {
                 if (ex.Response is HttpWebResponse errorResponse)
@@ -762,9 +775,9 @@ namespace CranchyLib.Networking
 
 
 
-    static internal class NetworkingLogic
+    internal static class NetworkingLogic
     {
-        public static List<string> ToList(this WebHeaderCollection headers)
+        internal static List<string> ToList(this WebHeaderCollection headers)
         {
             List<string> headerList = new List<string>();
 
@@ -776,7 +789,7 @@ namespace CranchyLib.Networking
             return headerList;
         }
 
-        public static int ToSeconds(this int milliseconds)
+        internal static int ToSeconds(this int milliseconds)
         {
             return milliseconds * 1000;
         }
