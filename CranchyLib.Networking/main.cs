@@ -503,6 +503,8 @@ namespace CranchyLib.Networking
                 }
             }
 
+            httpRequest.ReadWriteTimeout = timeout.ToSeconds();
+
             if (string.IsNullOrEmpty(data) == false)
             {
                 byte[] byteArray = Encoding.UTF8.GetBytes(data);
@@ -511,8 +513,6 @@ namespace CranchyLib.Networking
                     requestStream.Write(byteArray, 0, byteArray.Length);
                 }
             }
-
-            httpRequest.ReadWriteTimeout = timeout.ToSeconds();
 
             try
             {
@@ -583,6 +583,8 @@ namespace CranchyLib.Networking
                 }
             }
 
+            httpRequest.ReadWriteTimeout = timeout.ToSeconds();
+
             if (string.IsNullOrEmpty(data) == false)
             {
                 byte[] byteArray = Encoding.UTF8.GetBytes(data);
@@ -591,8 +593,6 @@ namespace CranchyLib.Networking
                     requestStream.Write(byteArray, 0, byteArray.Length);
                 }
             }
-
-            httpRequest.ReadWriteTimeout = timeout.ToSeconds();
 
             try
             {
@@ -663,6 +663,8 @@ namespace CranchyLib.Networking
                 }
             }
 
+            httpRequest.ReadWriteTimeout = timeout.ToSeconds();
+
             if (string.IsNullOrEmpty(data) == false)
             {
                 byte[] byteArray = Encoding.UTF8.GetBytes(data);
@@ -671,8 +673,6 @@ namespace CranchyLib.Networking
                     requestStream.Write(byteArray, 0, byteArray.Length);
                 }
             }
-
-            httpRequest.ReadWriteTimeout = timeout.ToSeconds();
 
             try
             {
