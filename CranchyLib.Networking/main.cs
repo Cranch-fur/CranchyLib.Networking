@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using System.Text;
@@ -464,10 +465,10 @@ namespace CranchyLib.Networking
         public struct S_Response
         {
             public E_StatusCode statusCode { get; }
-            public List<string> headers { get; }
+            public Dictionary<string, string> headers { get; }
             public string content { get; }
 
-            public S_Response(E_StatusCode statusCode, List<string> headers, string content)
+            public S_Response(E_StatusCode statusCode, Dictionary<string, string> headers, string content)
             {
                 this.statusCode = statusCode;
                 this.headers = headers;
@@ -521,7 +522,9 @@ namespace CranchyLib.Networking
                     using (StreamReader reader = new StreamReader(httpResponse.GetResponseStream()))
                     {
                         E_StatusCode statusCode = (E_StatusCode)httpResponse.StatusCode;
-                        List<string> responseHeaders = httpResponse.Headers?.ToList();
+                        Dictionary<string, string> responseHeaders = httpResponse.Headers
+                                                                     .AllKeys
+                                                                     .ToDictionary(key => key, key => httpResponse.Headers[key]);
                         string responseContent = reader.ReadToEnd();
 
                         return new S_Response(statusCode, responseHeaders, responseContent);
@@ -540,7 +543,9 @@ namespace CranchyLib.Networking
                     using (StreamReader reader = new StreamReader(errorResponse.GetResponseStream()))
                     {
                         E_StatusCode statusCode = (E_StatusCode)(int)httpStatusCode;
-                        List<string> errorHeaders = errorResponse.Headers?.ToList();
+                        Dictionary<string, string> errorHeaders = errorResponse.Headers
+                                                                  .AllKeys
+                                                                  .ToDictionary(key => key, key => errorResponse.Headers[key]);
                         string errorContent = reader.ReadToEnd();
 
                         return new S_Response(statusCode, errorHeaders, errorContent);
@@ -601,7 +606,9 @@ namespace CranchyLib.Networking
                     using (StreamReader reader = new StreamReader(httpResponse.GetResponseStream()))
                     {
                         E_StatusCode statusCode = (E_StatusCode)httpResponse.StatusCode;
-                        List<string> responseHeaders = httpResponse.Headers?.ToList();
+                        Dictionary<string, string> responseHeaders = httpResponse.Headers
+                                                                     .AllKeys
+                                                                     .ToDictionary(key => key, key => httpResponse.Headers[key]);
                         string responseContent = reader.ReadToEnd();
 
                         return new S_Response(statusCode, responseHeaders, responseContent);
@@ -620,7 +627,9 @@ namespace CranchyLib.Networking
                     using (StreamReader reader = new StreamReader(errorResponse.GetResponseStream()))
                     {
                         E_StatusCode statusCode = (E_StatusCode)(int)httpStatusCode;
-                        List<string> errorHeaders = errorResponse.Headers?.ToList();
+                        Dictionary<string, string> errorHeaders = errorResponse.Headers
+                                                                  .AllKeys
+                                                                  .ToDictionary(key => key, key => errorResponse.Headers[key]);
                         string errorContent = reader.ReadToEnd();
 
                         return new S_Response(statusCode, errorHeaders, errorContent);
@@ -739,7 +748,9 @@ namespace CranchyLib.Networking
                         }
 
                         E_StatusCode statusCode = (E_StatusCode)httpResponse.StatusCode;
-                        List<string> responseHeaders = httpResponse.Headers?.ToList();
+                        Dictionary<string, string> responseHeaders = httpResponse.Headers
+                                                                     .AllKeys
+                                                                     .ToDictionary(key => key, key => httpResponse.Headers[key]);
                         return new S_Response(statusCode, responseHeaders, destinationPath);
                     }
                 }
@@ -756,7 +767,9 @@ namespace CranchyLib.Networking
                     using (StreamReader reader = new StreamReader(errorResponse.GetResponseStream()))
                     {
                         E_StatusCode statusCode = (E_StatusCode)(int)httpStatusCode;
-                        List<string> errorHeaders = errorResponse.Headers?.ToList();
+                        Dictionary<string, string> errorHeaders = errorResponse.Headers
+                                                                  .AllKeys
+                                                                  .ToDictionary(key => key, key => errorResponse.Headers[key]);
                         string errorContent = reader.ReadToEnd();
 
                         return new S_Response(statusCode, errorHeaders, errorContent);
