@@ -17,32 +17,52 @@ using System.IO;
 
 namespace CranchyLib.Networking.Demo
 {
-    class Program
+    internal class Program
     {
-        static void GetRequestDemo()
+        private static void SimpleGetRequest()
         {
             Console.Clear();
-            Console.WriteLine("GET Request DEMO");
+            Console.WriteLine("Simple GET Request");
 
+            string requestUrl = "https://api.myip.com";
+            Console.WriteLine($"\nGET: {requestUrl}");
+
+            var requestResponse = Networking.Get(requestUrl);
+            Console.WriteLine($"\nSTATUS CODE: {requestResponse.statusCode} [{(int)requestResponse.statusCode}]");
+            if (requestResponse.statusCode == Networking.E_StatusCode.OK)
+            {
+                Console.WriteLine($"Content-Type: {requestResponse.headers["Content-Type"]}");
+                Console.WriteLine($"Content:\n{requestResponse.content}");
+            }
+            else
+            {
+                Console.WriteLine("Failed to perform the request!");
+            }
+
+            Console.WriteLine("\nPress ENTER to continue...");
+            Console.ReadLine();
+        }
+        private static void CustomHeadersGetRequest()
+        {
+            Console.Clear();
+            Console.WriteLine("Custom Headers GET Request");
 
             string requestUrl = "https://api.myip.com";
             List<string> headers = new List<string>()
             {
                 "User-Agent: CranchyLib Networking Demo",
-                "Custom-Header: Example of the custom header"
+                "Custom-Header: Example of an custom header"
             };
-
-
             Console.WriteLine($"\nGET: {requestUrl}");
+            
             Console.WriteLine("headers:");
             foreach(string header in headers)
             {
                 Console.WriteLine(header);
             }
 
-            Console.WriteLine("\nSending the request...");
             var requestResponse = Networking.Get(requestUrl, headers);
-            Console.WriteLine($"STATUS CODE: {requestResponse.statusCode} [{(int)requestResponse.statusCode}]");
+            Console.WriteLine($"\nSTATUS CODE: {requestResponse.statusCode} [{(int)requestResponse.statusCode}]");
             if (requestResponse.statusCode == Networking.E_StatusCode.OK)
             {
                 Console.WriteLine($"Content-Type: {requestResponse.headers["Content-Type"]}");
@@ -58,30 +78,16 @@ namespace CranchyLib.Networking.Demo
         }
 
 
-        static void DownloadRequestDemo()
+        private static void SimpleDownloadRequest()
         {
             Console.Clear();
-            Console.WriteLine("DOWNLOAD Request DEMO");
-
+            Console.WriteLine("Simple DOWNLOAD Request");
 
             string requestUrl = "https://i.imgur.com/h5ykMyf.jpeg";
-            List<string> headers = new List<string>()
-            {
-                "User-Agent: CranchyLib Networking Demo",
-                "Custom-Header: Example of the custom header"
-            };
-
-
             Console.WriteLine($"\nDOWNLOAD: {requestUrl}");
-            Console.WriteLine("headers:");
-            foreach (string header in headers)
-            {
-                Console.WriteLine(header);
-            }
 
-            Console.WriteLine("\nSending the request...");
-            var requestResponse = Networking.Download(requestUrl, headers);
-            Console.WriteLine($"STATUS CODE: {requestResponse.statusCode} [{(int)requestResponse.statusCode}]");
+            var requestResponse = Networking.Download(requestUrl);
+            Console.WriteLine($"\nSTATUS CODE: {requestResponse.statusCode} [{(int)requestResponse.statusCode}]");
 
             if (requestResponse.statusCode == Networking.E_StatusCode.OK && File.Exists(requestResponse.content))
             {
@@ -89,21 +95,46 @@ namespace CranchyLib.Networking.Demo
                 Process.Start(requestResponse.content);
             }
 
-            Console.WriteLine("\nPress ENTER to exit...");
+            Console.WriteLine("\nPress ENTER to continue...");
+            Console.ReadLine();
+        }
+        private static void CustomDestinationDownloadRequest()
+        {
+            Console.Clear();
+            Console.WriteLine("Custom Destination DOWNLOAD Request");
+
+            string requestUrl = "https://i.imgur.com/h5ykMyf.jpeg";
+            Console.WriteLine("\nSpecify destination folder path:");
+            string destinationPath = Console.ReadLine();
+            Console.WriteLine($"\nDOWNLOAD: {requestUrl}");
+
+            var requestResponse = Networking.Download(requestUrl, destinationPath);
+            Console.WriteLine($"\nSTATUS CODE: {requestResponse.statusCode} [{(int)requestResponse.statusCode}]");
+
+            if (requestResponse.statusCode == Networking.E_StatusCode.OK && File.Exists(requestResponse.content))
+            {
+                Console.Write(requestResponse.content);
+                Process.Start(requestResponse.content);
+            }
+
+            Console.WriteLine("\nPress ENTER to continue...");
             Console.ReadLine();
         }
 
 
 
 
-        static void Main(string[] args)
+        private static void Main(string[] args)
         {
             Console.WriteLine("CranchyLib.Networking.Demo");
             Console.WriteLine("\nPress ENTER to start...");
             Console.ReadLine();
 
-            GetRequestDemo();
-            DownloadRequestDemo();
+            SimpleGetRequest();
+            CustomHeadersGetRequest();
+
+            SimpleDownloadRequest();
+            CustomDestinationDownloadRequest();
         }
     }
 }
